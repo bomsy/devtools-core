@@ -2,6 +2,78 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
+.landing-page .tab-group-grid {
+}
+
+.landing-page .tab-list {
+  list-style: none;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+}
+
+.landing-page .tab {
+  border: 1px solid var(--theme-splitter-color);
+  height: 230px;
+  width: 200px;
+  padding: calc(var(--base-spacing) / 2) var(--base-spacing);
+  font-family: sans-serif;
+  margin: calc(var(--base-spacing) / 2);
+  cursor: pointer;
+  border-radius: 2px;
+  box-shadow: none;
+  transition: border 0.5s, box-shadow 0.5s;
+}
+
+.landing-page .tab:hover {
+  border: 1px solid #bbb;
+  box-shadow: 1px 1px 16px -1px rgba(204, 204, 204, 1);
+}
+
+.landing-page .tab-sides {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 calc(var(--base-spacing) * 2);
+}
+
+.landing-page .tab-title {
+  font-size: 12px;
+  font-weight: bold;
+  color: var(--theme-highlight-bluegrey);
+  word-break: break-all;
+}
+
+.landing-page .tab-url {
+  color: var(--theme-comment);
+  word-break: break-all;
+}
+
+.landing-page .tab-value {
+  color: var(--theme-comment);
+  line-height: var(--secondary-line-height);
+  font-size: var(--ui-element-font-size);
+}
+
+.landing-page .tab:focus, .landing-page .tab.active {
+  background: var(--theme-selection-background);
+  color: var(--theme-selection-color);
+  transition: var(--base-transition);
+}
+
+.landing-page .tab:focus .tab-title, .landing-page .tab.active .tab-title {
+  color: inherit;
+}
+
+.landing-page .tab:focus .tab-url, .landing-page .tab.active .tab-url {
+  color: var(--theme-highlight-gray);
+}
+
+/*
+.landing-page .tab-group {
+  flex: 1;
+  overflow-y: auto;
+}
+
 .landing-page .tab-group {
   flex: 1;
   overflow-y: auto;
@@ -44,19 +116,17 @@
   font-size: var(--ui-element-font-size);
 }
 
-.landing-page .tab:focus,
-.landing-page .tab.active {
+.landing-page .tab:focus, .landing-page .tab.active {
   background: var(--theme-selection-background);
   color: var(--theme-selection-color);
   transition: var(--base-transition);
 }
 
-.landing-page .tab:focus .tab-title,
-.landing-page .tab.active .tab-title {
+.landing-page .tab:focus .tab-title, .landing-page .tab.active .tab-title {
   color: inherit;
 }
 
-.landing-page .tab:focus .tab-url,
-.landing-page .tab.active .tab-url {
+.landing-page .tab:focus .tab-url, .landing-page .tab.active .tab-url {
   color: var(--theme-highlight-gray);
 }
+*/

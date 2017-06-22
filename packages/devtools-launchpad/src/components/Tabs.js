@@ -19,7 +19,7 @@ const Tabs = React.createClass({
   propTypes: {
     targets: React.PropTypes.object.isRequired,
     paramName: React.PropTypes.string.isRequired,
-    onTabClick: React.PropTypes.func.isRequired,
+    onTabClick: React.PropTypes.func.isRequired
   },
 
   onTabClick(tab, paramName) {
@@ -39,32 +39,38 @@ const Tabs = React.createClass({
     }
 
     return dom.div(
-      { className: "tab-group" },
+      { className: "tab-group-grid" },
       dom.ul(
         { className: "tab-list" },
-        targets.valueSeq().map(
-          tab => dom.li({
-            className: classnames("tab", {
-              active: targets.size === 1
-            }),
-            key: tab.get("id"),
-            tabIndex: 0,
-            role: "link",
-            onClick: () => this.onTabClick(tab, paramName),
-            onKeyDown: e => {
-              if (e.keyCode === 13) {
-                this.onTabClick(tab, paramName);
+        targets.valueSeq().map(tab =>
+          dom.li(
+            {
+              className: classnames("tab", {
+                active: targets.size === 1
+              }),
+              key: tab.get("id"),
+              tabIndex: 0,
+              role: "link",
+              onClick: () => this.onTabClick(tab, paramName),
+              onKeyDown: e => {
+                if (e.keyCode === 13) {
+                  this.onTabClick(tab, paramName);
+                }
               }
-            }
-          },
-          dom.div({ className: "tab-title" }, tab.get("title")),
-          dom.div({ className: "tab-url" }, tab.get("url"))
+            },
+            dom.img({
+              src: "google.png",
+              height: "160",
+              width: "160",
+              type: "image/png"
+            }),
+            dom.div({ className: "tab-title" }, tab.get("title")),
+            dom.div({ className: "tab-url" }, tab.get("url"))
           )
         )
       )
     );
   }
-
 });
 
 module.exports = Tabs;

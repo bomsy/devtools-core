@@ -53,7 +53,7 @@ function updateDir() {
 
 async function updateConfig() {
   const response = await fetch("/getconfig", {
-    method: "get",
+    method: "get"
   });
 
   const config = await response.json();
@@ -70,7 +70,7 @@ async function initApp() {
     log: getValue("logging.actions"),
     makeThunkArgs: (args, state) => {
       return Object.assign({}, args, {});
-    },
+    }
   });
 
   const store = createStore(combineReducers(reducers));
@@ -102,7 +102,7 @@ function renderRoot(_React, _ReactDOM, component, _store) {
   if (component.props || component.propTypes) {
     _ReactDOM.render(
       createElement(Provider, { store: _store }, createElement(component)),
-      root,
+      root
     );
   } else {
     root.appendChild(component);
@@ -169,7 +169,7 @@ async function bootstrap(React, ReactDOM) {
   const { store, actions, LaunchpadApp } = await initApp();
   renderRoot(React, ReactDOM, LaunchpadApp, store);
   await connectClients(actions);
-  setInterval(async () => await getTabs(actions), 3000);
+  setInterval(async () => await getTabs(actions), 300000000);
 
   return undefined;
 }
@@ -184,5 +184,5 @@ module.exports = {
   showMenu,
   unmountRoot,
   updateTheme,
-  updateDir,
+  updateDir
 };

@@ -1,7 +1,7 @@
 /* This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
- /* global window */
+/* global window */
 
 /**
  * Redux actions for the pause state
@@ -9,6 +9,7 @@
  */
 
 const constants = require("../constants");
+//const screenshot = require("../utils/screenshot.js");
 
 /**
  * @typedef {Object} TabAction
@@ -18,7 +19,7 @@ const constants = require("../constants");
  * @property {number} value The payload of the Action
  */
 
- /**
+/**
   * @memberof actions/tabs
   * @static
   * @returns {TabAction} with type constants.CLEAR_TABS and tabs as value
@@ -47,13 +48,27 @@ function newTabs(tabs) {
 /**
  * @memberof actions/tabs
  * @static
+ * @param {String} url
+ * @returns {TabAction} with type constants.ADD_TABS and tabs as value
+ */
+function addTabImage() {
+  return ({ getState, dispatch }) => {
+    return dispatch({
+      type: constants.ADD_TAB_IMAGE
+    });
+  };
+}
+
+/**
+ * @memberof actions/tabs
+ * @static
  * @param {String} $0.id Unique ID of the tab to select
  * @returns {TabAction}
  */
 function selectTab({ id }) {
   return {
     type: constants.SELECT_TAB,
-    id: id,
+    id: id
   };
 }
 
